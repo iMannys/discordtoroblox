@@ -10,7 +10,8 @@ const DBname = settings.MONGO_DBName
 
 //mongoose.connect(`mongodb+srv://${mongoUser}:${mongoPass}@discordtoroblox.in2nf.mongodb.net/${DBname}?retryWrites=true&w=majority`, {useNewUrlParser: true, useUnifiedTopology: true });
 
-var port = process.env.port || 5000
+var portt = process.env.port || 5000
+console.log(process.env.port)
 
 app.use(bodyparser.text())
 
@@ -19,6 +20,6 @@ app.post('/post', (request, response) => {
     console.log(request.body)
 })
 
-app.listen(port, function(){
-    console.log(`started server at http://localhost:${port}`)
+app.listen(portt, function(){
+    console.log(`started server at http://localhost:${portt}`)
 })
