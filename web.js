@@ -10,7 +10,7 @@ const DBname = settings.MONGO_DBName
 
 //mongoose.connect(`mongodb+srv://${mongoUser}:${mongoPass}@discordtoroblox.in2nf.mongodb.net/${DBname}?retryWrites=true&w=majority`, {useNewUrlParser: true, useUnifiedTopology: true });
 
-var port = 8000
+var port = process.env.port || 5000
 
 app.use(bodyparser.text())
 
