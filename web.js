@@ -11,11 +11,11 @@ const DBname = settings.MONGO_DBName
 //mongoose.connect(`mongodb+srv://${mongoUser}:${mongoPass}@discordtoroblox.in2nf.mongodb.net/${DBname}?retryWrites=true&w=majority`, {useNewUrlParser: true, useUnifiedTopology: true });
 
 var port = process.env.PORT || 5000
-console.log(process.env.PORT)
+
 
 app.use(bodyparser.text())
 
-app.post('/post', (request, response) => {
+app.post('/', (request, response) => {
     response.send("Gotten POST request")
     console.log(request.body)
 })
