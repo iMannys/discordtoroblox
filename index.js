@@ -3,10 +3,11 @@ const bot = new Discord.Client();
 const bodyparser = require('body-parser')
 const mongoose = require('mongoose')
 const express = require('express')
+const web = require("./web")
 
 
 var method = /\d+/g
-var str = localStorage.getItem("req")
+var str = web.res
 var res = parseInt(str.match(method))
 console.log(res)
 

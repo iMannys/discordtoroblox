@@ -17,7 +17,7 @@ var port = process.env.PORT || 5000
 app.use(bodyparser.text())
 
 app.post('/', (request, response) => {
-    localStorage.setItem("req", request.body)
+    module.exports = { res: request.body }
     response.send("Gotten POST request")
 })
 
