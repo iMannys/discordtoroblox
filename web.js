@@ -1,5 +1,6 @@
 const bodyparser = require('body-parser')
 const express = require('express')
+const { set } = require('mongoose')
 const settings = require("./settings.json")
 
 const app = express()
@@ -16,8 +17,8 @@ var port = process.env.PORT || 5000
 app.use(bodyparser.text())
 
 app.post('/', (request, response) => {
+    localStorage.setItem("req", request.body)
     response.send("Gotten POST request")
-    console.log(request.body)
 })
 
 app.listen(port, function(){
