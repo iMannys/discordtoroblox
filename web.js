@@ -11,6 +11,7 @@ var port = process.env.PORT || 5000
 app.use(bodyparser.text())
 
 app.post('/', (request, response) => {
+    console.log(request.body)
     CreateUser.run(request.body)
     response.send("Gotten POST request")
 })
