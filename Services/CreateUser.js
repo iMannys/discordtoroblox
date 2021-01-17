@@ -1,12 +1,12 @@
 const mongo = require("./mongo")
 const userSchema = require('../Schemas/user-schema')
 
-module.exports.run = async (req) => {
+module.exports.run = async (data) => {
     await mongo.run().then(async (mongoose) => {
         try {
             const user = {
-                username: req.Username,
-                coins: req.Coins
+                Username: data.Username,
+                Coins: data.Coins
             }
             await new userSchema(user).save()
         } finally {

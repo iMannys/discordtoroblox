@@ -11,7 +11,7 @@ const reqNumber = {
 }
 
 const userSchema = mongoose.Schema({
-    username: reqString,
+    Username: reqString,
     Coins: reqNumber,
 })
 
