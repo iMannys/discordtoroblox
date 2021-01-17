@@ -1,6 +1,6 @@
 const bodyparser = require('body-parser')
 const express = require('express')
-const settings = require("./settings.json")
+const settings = require("./Config/botsettings.json")
 const CreateUser = require("./Services/CreateUser")
 const app = express()
 
