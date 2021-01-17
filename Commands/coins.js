@@ -24,4 +24,5 @@ module.exports.config = {
     description: "Checks the user",
     usage: ";coins",
     permissions: "Members",
+    aliases: []
 }
