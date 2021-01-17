@@ -7,6 +7,9 @@ const fs = require('fs')
 const web = require("./web")
 const settings = require('./Config/botsettings.json')
 
+bot.commands = new Discord.Collection();
+bot.aliases = new Discord.Collection();
+
 fs.readdir("./Commands/", (err, files) => {
 
     if(err) console.log(err)
