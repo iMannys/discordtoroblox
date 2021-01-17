@@ -10,10 +10,26 @@ var port = process.env.PORT || 5000
 
 app.use(bodyparser.text())
 
-app.post('/', (request, response) => {
-    console.log(request.body)
-    CreateUser.run(request.body)
-    response.send("Gotten POST request")
+app.post('/', (req, res) => {
+    console.log(req)
+    var json = ''
+
+    req.on('data', function (chunk) {
+        json += chunk;
+    });
+
+    req.on('end', function () {
+        if (res.statusCode === 200) {
+            try {
+                var data = JSON.parse(json)
+                CreateUser.run(data)
+            } catch (e) {
+                console.log(`Error parsing JSON. Error: ${e}`)
+            }
+        }
+    })
+    //CreateUser.run(request)
+    res.send("Gotten POST request")
 })
 
 app.listen(port, function(){
