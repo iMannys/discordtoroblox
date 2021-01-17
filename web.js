@@ -11,7 +11,6 @@ var port = process.env.PORT || 5000
 app.use(bodyparser.text())
 
 app.post('/', (req, res) => {
-    console.log(req)
     var json = ''
 
     req.on('data', function (chunk) {
