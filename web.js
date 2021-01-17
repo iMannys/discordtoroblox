@@ -18,7 +18,7 @@ var port = process.env.PORT || 5000
 app.use(bodyparser.text())
 
 app.post('/', (request, response) => {
-    SaveToDB.run()
+    SaveToDB.run(request.body)
     response.send("Gotten POST request")
 })
 
