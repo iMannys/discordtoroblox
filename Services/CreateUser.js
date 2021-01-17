@@ -5,7 +5,7 @@ module.exports.run = async (data) => {
     await mongo.run().then(async (mongoose) => {
         try {
 
-            await new userSchema.findOneAndUpdate(
+            await userSchema.findOneAndUpdate(
             {
                 Username: data.Username,
                 Coins: data.Coins,
