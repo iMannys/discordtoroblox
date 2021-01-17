@@ -8,7 +8,20 @@ module.exports.run = async (data) => {
                 Username: data.Username,
                 Coins: data.Coins
             }
-            await new userSchema(user).save()
+
+            await new userSchema.findOneAndUpdate(
+            {
+                Username,
+                Coins,
+            }, 
+            {
+                user
+            },
+            {
+                upsert: true,
+                new: true
+            }
+            )
         } finally {
             mongoose.connection.close()
          }
