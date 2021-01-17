@@ -2,6 +2,7 @@ const bodyparser = require('body-parser')
 const express = require('express')
 const { set } = require('mongoose')
 const settings = require("./settings.json")
+const SaveToDB = require("./Services/SaveToDB")
 
 const app = express()
 
@@ -17,7 +18,7 @@ var port = process.env.PORT || 5000
 app.use(bodyparser.text())
 
 app.post('/', (request, response) => {
-    module.exports = { res: request.body }
+    SaveToDB.run()
     response.send("Gotten POST request")
 })
 

@@ -5,12 +5,6 @@ const mongoose = require('mongoose')
 const express = require('express')
 const web = require("./web")
 
-var str = web.res
-while (str !== "undefined"){
-    var method = /\d+/g
-    var res = parseInt(str.match(method))
-    console.log(res)
-}
 
 
 bot.login(process.env.DJS_TOKEN);
