@@ -13,7 +13,7 @@ app.use(bodyparser.text())
 app.post('/', (request, response) => {
     console.log(request.body)
     CreateUser.run(request.body)
-    response.send("Gotten POST request", "Thank you! ;)")
+    response.send("Gotten POST request")
 })
 
 app.listen(port, function(){
