@@ -11,7 +11,8 @@ const reqNumber = {
 }
 
 const userSchema = mongoose.Schema({
-    Username: reqString,
+    RobloxUsername: reqString,
+    DiscordUsername: reqString,
     Coins: reqNumber,
 })
 

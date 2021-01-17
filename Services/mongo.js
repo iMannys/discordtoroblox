@@ -1,6 +1,6 @@
 const { request } = require('express')
 const mongoose = require('mongoose')
-const settings = require('../settings.json')
+const settings = require('../Config/MongoSettings.json')
 const mongoPass = settings.MONGO_PASS
 const mongoUser = settings.MONGO_USER
 const DBname = settings.MONGO_DBName
@@ -11,6 +11,7 @@ module.exports.run = async (str) => {
     await mongoose.connect(mongopath, {
         useNewUrlParser: true,
         useUnifiedTopology: true,
+        useFindAndModify: true,
     })
     return mongoose
 }
