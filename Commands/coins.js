@@ -9,11 +9,12 @@ module.exports.run = async (bot, message, args) => {
             const result = await userSchema.find({
                 DiscordUsername: message.author.username
             })
-            const WhoisEmbed = new Discord.MessageEmbed()
-                .setColor("GREY")
-                .setAuthor('**Whois command**', bot.user.avatarURL)
+            const CoinsEmbed = new Discord.MessageEmbed()
+                .setColor("BLUE")
+                .setAuthor('Coins command', bot.user.avatarURL)
                 .addField("Roblox Username: ", result.RobloxUsername)
-            message.channel.send(WhoisEmbed)
+            message.channel.send(CoinsEmbed)
+            message.channel.send(bot.user.avatarURL)
         } finally {
             mongoose.connection.close()
          }

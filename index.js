@@ -7,6 +7,8 @@ const fs = require('fs')
 const web = require("./web")
 const settings = require('./Config/botsettings.json')
 
+module.exports = bot
+
 bot.commands = new Discord.Collection();
 bot.aliases = new Discord.Collection();
 
@@ -34,6 +36,8 @@ bot.on("message", async message => {
     let args = message.content.split(" ");
     let cmd = args[0];
     //var args =  message.content.substring(message.content.indexOf(' ')+1);
+    
+
 
     let commandfile = bot.commands.get(cmd.slice(prefix.length)) || bot.commands.get(bot.aliases.get(cmd.slice(prefix.length)))
     if(commandfile) commandfile.run(bot,message,args)
