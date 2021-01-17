@@ -6,6 +6,7 @@ const express = require('express')
 const fs = require('fs')
 const web = require("./web")
 const settings = require('./Config/botsettings.json')
+const s = require('./Services/GetUsers')
 
 module.exports = bot
 
