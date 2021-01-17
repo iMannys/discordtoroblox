@@ -7,7 +7,7 @@ const fs = require('fs')
 const web = require("./web")
 const settings = require('./Config/botsettings.json')
 
-fs.readdir("./commands/", (err, files) => {
+fs.readdir("./Commands/", (err, files) => {
 
     if(err) console.log(err)
 
