@@ -7,8 +7,8 @@ module.exports.run = async (data) => {
 
             await new userSchema.findOneAndUpdate(
             {
-                Username,
-                Coins,
+                Username: data.Username,
+                Coins: data.Coins,
             }, 
             {
                 Username: data.Username,
