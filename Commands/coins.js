@@ -1,5 +1,6 @@
 const Discord = require('discord.js')
 const mongo = require('../Services/mongo')
+const userSchema = require('../Schemas/user-schema')
 
 module.exports.run = async (bot, message, args) => {
     await mongo.run().then(async (mongoose) => {
@@ -24,5 +25,5 @@ module.exports.config = {
     description: "Checks the user",
     usage: ";coins",
     permissions: "Members",
-    aliases: []
+    aliases: ['bigwallet']
 }
