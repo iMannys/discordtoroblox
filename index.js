@@ -3,6 +3,7 @@ const bot = new Discord.Client();
 const bodyparser = require('body-parser')
 const mongoose = require('mongoose')
 const express = require('express')
+const fs = require('fs')
 const web = require("./web")
 const settings = require('./Config/botsettings.json')
 
