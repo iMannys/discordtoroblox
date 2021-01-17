@@ -9,7 +9,7 @@ module.exports.run = async (bot, message, args) => {
             const result = await userSchema.find({
                 DiscordUsername: message.author.username
             })
-            const WhoisEmbed = new Discord.MessageEmbed
+            const WhoisEmbed = new Discord.MessageEmbed()
                 .setColor("GREY")
                 .setAuthor('**Whois command**', bot.user.avatarURL)
                 .addField("Roblox Username: ", result.RobloxUsername)
