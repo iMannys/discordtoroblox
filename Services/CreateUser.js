@@ -2,7 +2,7 @@ const mongo = require("./mongo")
 const userSchema = require('../Schemas/user-schema')
 
 module.exports.run = async (req) => {
-    await mongo().then(async (mongoose) => {
+    await mongo.run().then(async (mongoose) => {
         try {
             const user = {
                 username: req.Username,
