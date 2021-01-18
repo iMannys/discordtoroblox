@@ -31,7 +31,6 @@ fs.readdir("./Commands/", (err, files) => {
 bot.on('ready', () => {
     const Guilds = bot.guilds.cache.map(guild => guild);
     module.exports = Guilds
-    const s = require('./Services/GetUsers')
 });
 
 bot.on("message", async message => {
