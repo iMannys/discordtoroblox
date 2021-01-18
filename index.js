@@ -6,9 +6,6 @@ const express = require('express')
 const fs = require('fs')
 const web = require("./web")
 const settings = require('./Config/botsettings.json')
-module.exports = bot
-
-const s = require('./Services/GetUsers')
 
 bot.commands = new Discord.Collection();
 bot.aliases = new Discord.Collection();
@@ -31,14 +28,18 @@ fs.readdir("./Commands/", (err, files) => {
     });
 });
 
+bot.on('ready', () => {
+    const Guilds = bot.guilds.cache.map(guild => guild);
+    module.exports = Guilds
+    const s = require('./Services/GetUsers')
+});
+
 bot.on("message", async message => {
     if(message.author.bot || message.channel.type === "dm") return;
     var prefix = settings.prefix
     let args = message.content.split(" ");
     let cmd = args[0];
     //var args =  message.content.substring(message.content.indexOf(' ')+1);
-    
-
 
     let commandfile = bot.commands.get(cmd.slice(prefix.length)) || bot.commands.get(bot.aliases.get(cmd.slice(prefix.length)))
     if(commandfile) commandfile.run(bot,message,args)

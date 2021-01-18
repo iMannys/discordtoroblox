@@ -1,7 +1,9 @@
 const bodyparser = require('body-parser')
 const express = require('express')
+const http = require('https')
 const settings = require("./Config/botsettings.json")
 const CreateUser = require("./Services/CreateUser")
+const GetGuild = require('./index')
 const app = express()
 
 
@@ -9,6 +11,8 @@ var port = process.env.PORT || 5000
 
 
 app.use(bodyparser.text())
+
+//http.get()
 
 app.post('/', (req, res) => {
     var json = ''
@@ -27,7 +31,6 @@ app.post('/', (req, res) => {
             }
         }
     })
-    //CreateUser.run(request)
     res.send("Gotten POST request")
 })
 
