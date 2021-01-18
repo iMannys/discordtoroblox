@@ -28,10 +28,8 @@ fs.readdir("./Commands/", (err, files) => {
     });
 });
 
-bot.on('ready', () => {
-    const Guilds = bot.guilds.cache.map(guild => guild);
-    module.exports = Guilds
-});
+const Guilds = bot.guilds.cache.map(guild => guild);
+module.exports = Guilds
 
 bot.on("message", async message => {
     if(message.author.bot || message.channel.type === "dm") return;
@@ -43,7 +41,6 @@ bot.on("message", async message => {
     let commandfile = bot.commands.get(cmd.slice(prefix.length)) || bot.commands.get(bot.aliases.get(cmd.slice(prefix.length)))
     if(commandfile) commandfile.run(bot,message,args)
 })
-
 
 
 bot.login(process.env.DJS_TOKEN);
