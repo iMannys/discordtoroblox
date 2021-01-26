@@ -29,8 +29,6 @@ module.exports.run = async (bot, message, args) => {
                             var data = JSON.parse(json);
                             if (data.status === 'ok') {
                                 var Roverusername = data.robloxUsername
-                                var NotABot = message.guild.roles.cache.find(role => role.name === 'Verified')
-                                message.member.roles.add(NotABot)
                                 message.member.setNickname(Roverusername)
                                 await userSchema.findOneAndUpdate(
                                     {
