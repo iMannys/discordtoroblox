@@ -4,6 +4,7 @@ const http = require('https')
 const settings = require("./Config/botsettings.json")
 const CreateUser = require("./Services/CreateUser")
 const GetUser = require("./Services/GetUser")
+const mongo = require("./Services/mongo")
 const GetGuild = require('./index')
 const { response } = require('express')
 const app = express()
@@ -14,7 +15,7 @@ var port = process.env.PORT || 5000
 
 app.use(bodyparser.text())
 
-//http.get()
+
 
 app.post('/', (req, res) => {
     var json = ''
@@ -23,12 +24,21 @@ app.post('/', (req, res) => {
         json += chunk;
     });
 
-    req.on('end', function () {
+    req.on('end', async function () {
         if (res.statusCode === 200) {
             try {
                 var data = JSON.parse(json)
                 if (data.Method === "GetData") {
-                    GetUser.run(res, data)
+                    await mongo.run().then(async (mongoose) => {
+                        try {
+                            const userInfo = await userSchema.find({
+                                RobloxUsername: data.Username
+                            })
+                            res.send(userInfo)
+                        } finally {
+                            mongoose.connection.close()
+                        }
+                    })
                 } else if (data.Method === "SetData") {
                     CreateUser.run(data)
                     res.send("Successfully set the data!")
