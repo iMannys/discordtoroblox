@@ -22,7 +22,7 @@ module.exports.run = async (bot, message, args) => {
                     json += chunk;
                 });
 
-                res.on('end', function () {
+                res.on('end', async function () {
                     if (res.statusCode === 200) {
                         try {
                             var data = JSON.parse(json);
