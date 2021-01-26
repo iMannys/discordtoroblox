@@ -3,7 +3,9 @@ const express = require('express')
 const http = require('https')
 const settings = require("./Config/botsettings.json")
 const CreateUser = require("./Services/CreateUser")
+const GetUser = require("./Services/GetUser")
 const GetGuild = require('./index')
+const { response } = require('express')
 const app = express()
 
 
@@ -32,6 +34,11 @@ app.post('/', (req, res) => {
         }
     })
     res.send("Gotten POST request")
+})
+
+app.get('/', function (req, res) {
+    res.send(req)
+    //GetUser.run(res)
 })
 
 app.listen(port, function(){
