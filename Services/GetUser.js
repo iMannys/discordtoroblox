@@ -8,7 +8,11 @@ module.exports.run = async (res, data) => {
             const userInfo = await userSchema.find({
                 RobloxUsername: data.Username
             })
-            res.send(userInfo)
+            if (userInfo === "[]") {
+                res.send("Could not find anything!")
+            } else {
+                res.send(userInfo)
+            }
         } finally {
             mongoose.connection.close()
         }
