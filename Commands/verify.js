@@ -1,4 +1,5 @@
 const discord = require("discord.js")
+const https = require("https")
 const mongo = require('../Services/mongo')
 const userSchema = require('../Schemas/user-schema')
 
