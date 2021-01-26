@@ -13,7 +13,7 @@ const reqNumber = {
 const userSchema = mongoose.Schema({
     RobloxUsername: reqString,
     DiscordUsername: String,
-    Coins: reqNumber,
+    Coins: Number,
 })
 
 module.exports = mongoose.model('users', userSchema)

@@ -11,7 +11,7 @@ module.exports.run = async (str) => {
     await mongoose.connect(mongopath, {
         useNewUrlParser: true,
         useUnifiedTopology: true,
-        useFindAndModify: true,
+        useFindAndModify: false,
     })
     return mongoose
 }
