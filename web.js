@@ -37,7 +37,22 @@ app.post('/', (req, res) => {
 })
 
 app.get('/', function (req, res) {
-    res.send(req)
+    var json = ''
+
+    req.on('data', function (chunk) {
+        json += chunk;
+    });
+
+    req.on('end', function () {
+        if (res.statusCode === 200) {
+            try {
+                var data = JSON.parse(json)
+                res.send(data)
+            } catch (e) {
+                console.log(`Error parsing JSON. Error: ${e}`)
+            }
+        }
+    })
     //GetUser.run(res)
 })
 
