@@ -1,7 +1,7 @@
 const mongo = require("./mongo")
 const userSchema = require('../Schemas/user-schema')
 
-module.exports.run = async (res, data, info) => {
+module.exports.run = async (data, info) => {
     await mongo.run().then(async (mongoose) => {
         try {
             if(info){
