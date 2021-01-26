@@ -29,7 +29,7 @@ module.exports.run = async (bot, message, args) => {
                             var data = JSON.parse(json);
                             if (data.status === 'ok') {
                                 var Roverusername = data.robloxUsername
-                                message.member.setNickname(Roverusername)
+                                //message.member.setNickname(Roverusername)
                                 await userSchema.findOneAndUpdate(
                                     {
                                         RobloxUsername: data.robloxUsername,
