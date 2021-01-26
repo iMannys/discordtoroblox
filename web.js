@@ -27,34 +27,20 @@ app.post('/', (req, res) => {
         if (res.statusCode === 200) {
             try {
                 var data = JSON.parse(json)
-                CreateUser.run(data)
+                if (data.Method === "GetData") {
+                    GetUser.run(res, data)
+                } else if (data.Method === "SetData") {
+                    CreateUser.run(data)
+                    res.send("Successfully set the data!")
+                }
+                
             } catch (e) {
                 console.log(`Error parsing JSON. Error: ${e}`)
             }
         }
     })
-    res.send("Gotten POST request")
 })
 
-app.get('/', function (req, res) {
-    var json = ''
-
-    req.on('data', function (chunk) {
-        json += chunk;
-    });
-
-    req.on('end', function () {
-        if (res.statusCode === 200) {
-            try {
-                var data = JSON.parse(json)
-                res.send(data)
-            } catch (e) {
-                console.log(`Error parsing JSON. Error: ${e}`)
-            }
-        }
-    })
-    //GetUser.run(res)
-})
 
 app.listen(port, function(){
     console.log(`started server at http://localhost:${port}`)
