@@ -62,7 +62,7 @@ module.exports.run = async (bot, message, args) => {
             });
         } finally {
             mongoose.connection.close()
-         }
+        }
     })
 }
 
